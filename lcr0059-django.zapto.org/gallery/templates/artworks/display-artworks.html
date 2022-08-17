@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tables.css' %}" />
+    <title>ArtworksNZ</title>
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="{% static 'images/logo.jpg '%}" alt="ArtworksNZ">
+        <h1>ArtworksNZ</h1>
+        <ul>
+            <li><a href="placeholder.html">Log In</a></li>
+        </ul>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}" class="selected">Home</a></li>
+            <li><a href="{% url 'index-artist'%}">Artists</a></li>
+            <li><a href="{% url 'index-artworks' %}">Artworks</a></li>
+            <li><a href="/admin">Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <br>
+    <main class="center">
+        <table class="greyGridTable">
+            <thead>
+                <th>Artist ID</th>
+                <th>Name</th>
+                <th>Media Type</th>
+                <th>Completion Date</th>
+                <th>Price</th>
+                <th>Preview</th>
+            </thead>
+            <tfoot>
+                <tbody>
+                    {% for artwork in artworks %}
+                    <tr>
+                        <td>{{artwork.artistID.first_name}} {{artwork.artistID.last_name}}</td>
+                        <td>{{artwork.name}}</td>
+                        <td>{{artwork.media_type}}</td>
+                        <td><img src="/media/{{artwork.image}}" width="250"></td>
+                        <td><a href="update-artwork/{{artwork.id}}">edit</a></td>
+                        <td><a href="delete-artwork/{{artwork.id}}">delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+        </table>
+    </main>
+    <footer>
+        <p>© Artworks NZ, 2022.</p>
+    </footer>
+</body>
+
+</html>

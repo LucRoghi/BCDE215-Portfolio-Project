@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/tables.css' %}" />
+
+<body>
+    <header>
+        <img id="logo" src="{% static 'images/logo.jpg '%}" alt="ArtworksNZ">
+        <h1>ArtworksNZ</h1>
+        <ul>
+            <li><a href="placeholder.html">Log In</a></li>
+        </ul>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}" class="selected">Home</a></li>
+            <li><a href="{% url 'index-artist'%}">Artists</a></li>
+            <li><a href="{% url 'index-artworks' %}">Artworks</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        <h1>Add a new Artist</h1>
+        <form method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="greyGridTable">
+                {% for field in upload_form %}
+                <tr>
+                    <th>{{field.label}}</th>
+                    <td>{{ field }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button type="submit">Submit</button>
+        </form>
+        {% endblock %}
+    </main>
+
+</body>

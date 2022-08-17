@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+{% load admin_urls %}
+<html>
+
+<head>
+    <title>ArtworksNZ</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArtworksNZ</title>
+    <meta name="description"
+        content="This website is a gallery for new and old artist seeking to provide art for the less fortunate">
+    <meta name="author" content="Luc Roghi">
+    <meta name="robots" content="index, follow">
+</head>
+
+<body>
+    <header>
+	    <img id="logo" src="{% static 'images/logo.JPG '%}" alt="logo.jpg">
+        <h1>ArtworksNZ</h1>
+        <ul>
+            <li><a href="placeholder.html">Register</a></li>
+            <li><a href="placeholder.html">Log In</a></li>
+        </ul>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}" class="selected">Home</a></li>
+            <li><a href="{% url 'index-artist'%}">Artists</a></li>
+            <li><a href="{% url 'index-artworks' %}">Artworks</a></li>
+            <li><a href="/admin">Admin Login</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h1>Our exhibition in action</h1>
+        <p>Most of our events are present in Hagley Park with live Music present on weekends</p>
+        <div id="features">
+            <div>
+                <img src="{% static 'images/sparksinPark.jpg'%}" alt="Birds eye view of the exhibition">
+                <h3>A birds eye view of the exhibition</h3>
+            </div>
+        </div>
+    </main>
+    
+    <aside id="borderleft">
+        <h2>Who are we</h2>
+        <p>We are a non profit organization aiming to help less fortunate people to see modern art without any need for status or wealth.
+           We decided to form adter the Christchurch Earthquake left so many without home, jobs and family. 
+           Hence, a free exhibition to help take the mind off was the only logical option. All art is free and can be viewed either in person at Hagley Park or online
+        </p>
+    </aside>
+
+    <aside id="news">
+        <h2>News</h2>
+        <div>
+            <h3>New Guest Artists</h3>
+            <p>2 August 2018</p>
+            <p>Kia ora. Hope you are all enjoying our exhibition so far. We will be welcoming 3 new upcoming artists to the exhibition. Go and check out their artworks here :)</p>
+        </div>
+    </aside>
+  
+    <footer>
+        <p>© Artworks NZ, 2022.</p>
+    </footer>
+</body>
+</html>

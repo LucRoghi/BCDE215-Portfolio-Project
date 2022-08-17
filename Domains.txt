@@ -1,0 +1,7 @@
+AWS IP Address: 13.55.72.67
+AWS IPv4 DNS: ec2-13-55-72-67.ap-southeast-2.compute.amazonaws.com
+
+Django Domain: lcr0059-django.zapto.org
+Wordpress Domain: lcr0059-wordpress.zapto.org
+
+

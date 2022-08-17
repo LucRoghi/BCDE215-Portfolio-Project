@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tables.css' %}" />
+    <title>ArtworksNZ</title>
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="{% static 'images/logo.jpg '%}" alt="ArtworksNZ">
+        <h1>ArtworksNZ</h1>
+        <ul>
+            <li><a href="placeholder.html">Log In</a></li>
+        </ul>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}" class="selected">Home</a></li>
+            <li><a href="{% url 'index-artist'%}">Artists</a></li>
+            <li><a href="{% url 'index-artworks' %}">Artworks</a></li>
+            <li><a href="/admin">Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <br>
+    <main class="center">
+        <table class="greyGridTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Primary Media</th>
+                </tr>
+            </thead>
+            <tfoot>
+            <tbody>
+                {% for artist in artists %}
+                <tr>
+                    <td>{{artist.id}}</td>
+                    <td>{{artist.last_name}}, {{artist.first_name}}</td>
+                    <td>{{artist.primary_media}}</td>
+                    <td><a href="update-artist/{{artist.id}}">edit</a></td>
+                    <td><a href="delete-artist/{{artist.id}}">delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <aside id="borderleft">
+        <a href="{% url 'create-artist'%}"><h2>Add a new artist</h2></a>
+    </aside>
+    <footer>
+        <p>© Artworks NZ, 2022.</p>
+    </footer>
+</body>
+
+</html>
